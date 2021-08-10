@@ -18,6 +18,9 @@ namespace Proyecto_2236903_Framework.Controllers
             }
         }
 
-       
+        public ActionResult Create()
+        {
+            return View();
+        }
     }
 }
