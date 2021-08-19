@@ -1,21 +1,20 @@
 ﻿@model Proyecto_2236903_Framework.Models.usuariorol
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Registrar";
 }
 
-<h2>Create</h2>
+<h2>Registrar Usuario_Rol</h2>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>usuariorol</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.idUsuario, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="idUsuario">Usuario:</label>
             <div class="col-md-10">
                 @Html.Action("ListarUsuarios")
                 @Html.ValidationMessageFor(model => model.idUsuario, "", new { @class = "text-danger" })
@@ -23,7 +22,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.idRol, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="idRol">Rol:</label>
             <div class="col-md-10">
                 @Html.Action("ListarRoles")
                 @Html.ValidationMessageFor(model => model.idRol, "", new { @class = "text-danger" })
@@ -39,5 +38,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Ver todo", "Index")
 </div>

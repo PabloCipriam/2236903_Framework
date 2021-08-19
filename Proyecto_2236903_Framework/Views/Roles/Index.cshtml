@@ -1,18 +1,18 @@
 ﻿@model IEnumerable<Proyecto_2236903_Framework.Models.roles>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Roles";
 }
 
 <h2>Roles</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Nuevo", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.descripcion)
+            Descripción
         </th>
         <th></th>
     </tr>
@@ -23,11 +23,21 @@
             @Html.DisplayFor(modelItem => item.descripcion)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            @Html.ActionLink("Editar", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.id }, new { @class = "linkDelete" })
         </td>
     </tr>
 }
 
 </table>
+
+@section scripts{
+    <script>
+        $(".linkDelete").click(function (event) {
+            if (!confirm('¿Está seguro de eliminar?')) {
+                event.preventDefault();
+            }
+        })
+    </script>
+    }
