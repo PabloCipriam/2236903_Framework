@@ -34,6 +34,14 @@ namespace Proyecto_2236903_Framework.Controllers
             }
         }
 
+        public ActionResult ListarCompra()
+        {
+            using(var db = new inventario2021Entities())
+            {
+                return PartialView(db.compra.ToList());
+            }
+        }
+
         public ActionResult Create()
         {
             return View();
