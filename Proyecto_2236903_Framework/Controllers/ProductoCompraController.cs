@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Proyecto_2236903_Framework.Models;
+using Rotativa;
 
 namespace Proyecto_2236903_Framework.Controllers
 {
@@ -163,6 +164,11 @@ namespace Proyecto_2236903_Framework.Controllers
                 ModelState.AddModelError("", "error" + ex);
                 return View();
             }
+        }
+
+        public ActionResult PdfFactura()
+        {
+            return new ActionAsPdf("Factura") { FileName = "factura.pdf" };
         }
     }
 }
