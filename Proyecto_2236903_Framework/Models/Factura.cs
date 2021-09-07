@@ -4,20 +4,16 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 
-
 namespace Proyecto_2236903_Framework.Models
 {
-    public class Reporte
+    public class Factura
     {
         [Required]
         [StringLength(10)]
-        public String nombreProveedor { get; set; }
+        public String nombreCliente { get; set; }
 
         [Required]
-        public String direccionProveedor { get; set; }
-
-        [Required]
-        public String telefonoProveedor { get; set; }
+        public String documentoCliente { get; set; }
 
         [Required]
         [StringLength(10)]
@@ -26,6 +22,7 @@ namespace Proyecto_2236903_Framework.Models
         [Required]
         public int precioProducto { get; set; }
 
-
+        [Required]
+        public int cantidadProducto { get; set; }
     }
 }

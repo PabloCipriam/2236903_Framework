@@ -11,7 +11,8 @@ namespace Proyecto_2236903_Framework.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class cliente
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,8 +22,16 @@ namespace Proyecto_2236903_Framework.Models
         }
     
         public int id { get; set; }
+
+        [Required]
+        [StringLength(10)]
         public string nombre { get; set; }
+
+        [Required]
         public string documento { get; set; }
+
+        [Required]
+        [DataType(DataType.EmailAddress)]
         public string email { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

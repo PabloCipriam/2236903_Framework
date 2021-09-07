@@ -138,5 +138,31 @@ namespace Proyecto_2236903_Framework.Controllers
                 return View();
             }
         }
+
+        public ActionResult Factura()
+        {
+            try
+            {
+                var db = new inventario2021Entities();
+                var query = from tabCliente in db.cliente
+                            join tabCompra in db.compra on tabCliente.id equals tabCompra.id_cliente
+                            join tabProductoCompra in db.producto_compra on tabCompra.id equals tabProductoCompra.id_compra
+                            join tabProducto in db.producto on tabProductoCompra.id_producto equals tabProducto.id
+                            select new Factura
+                            {
+                                nombreCliente = tabCliente.nombre,
+                                documentoCliente = tabCliente.documento,
+                                nombreProducto = tabProducto.nombre,
+                                precioProducto = tabProducto.percio_unitario,
+                                cantidadProducto = tabProducto.cantidad
+                            };
+                return View(query);
+            }
+            catch(Exception ex)
+            {
+                ModelState.AddModelError("", "error" + ex);
+                return View();
+            }
+        }
     }
 }
