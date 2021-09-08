@@ -10,6 +10,7 @@ namespace Proyecto_2236903_Framework.Controllers
 {
     public class ProductoController : Controller
     {
+        [Authorize]
         // GET: Producto
         public ActionResult Index()
         {

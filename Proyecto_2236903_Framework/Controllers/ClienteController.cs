@@ -9,6 +9,7 @@ namespace Proyecto_2236903_Framework.Controllers
 {
     public class ClienteController : Controller
     {
+        [Authorize]
         // GET: Cliente
         public ActionResult Index()
         {

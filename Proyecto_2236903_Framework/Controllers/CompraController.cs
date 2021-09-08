@@ -9,6 +9,7 @@ namespace Proyecto_2236903_Framework.Controllers
 {
     public class CompraController : Controller
     {
+        [Authorize]
         // GET: Compra
         public ActionResult Index()
         {

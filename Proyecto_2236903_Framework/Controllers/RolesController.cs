@@ -9,6 +9,7 @@ namespace Proyecto_2236903_Framework.Controllers
 {
     public class RolesController : Controller
     {
+        [Authorize]
         // GET: Roles
         public ActionResult Index()
         {

@@ -9,6 +9,7 @@ namespace Proyecto_2236903_Framework.Controllers
 {
     public class ProveedorController : Controller
     {
+        [Authorize]
         // GET: Proveedor
         public ActionResult Index()
         {
