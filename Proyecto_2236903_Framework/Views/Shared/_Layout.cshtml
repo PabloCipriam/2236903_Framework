@@ -24,12 +24,16 @@
                     <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
                     <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
                     <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Iniciar Sesión", "Login", "Usuario")</li>
+                    @if (User.Identity.IsAuthenticated == false)
+                    {
+                        <li>@Html.ActionLink("Iniciar Sesión", "Login", "Usuario")</li>
+                    }
+
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                CRUD's
+                                Tablas
                                 <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
                             </a>
                             <ul class="dropdown-menu">
@@ -47,6 +51,20 @@
                             </ul>
                         </li>
                     }
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                CSV
+                                <span class="glyphicon glyphicon-open-file" aria-hidden="true"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Subir CSV cliente", "uploadCSV", "Cliente")</li>
+                            </ul>
+                        </li>
+                    }
+
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Cerrar Sesión", "CloseSession", "Usuario")</li>
